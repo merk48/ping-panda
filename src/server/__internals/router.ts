@@ -63,6 +63,7 @@ export const router = <T extends Record<string, OperationType<any, any>>>(
 
     if (operation.type === "query") {
       if (operation.schema) {
+        // @ts-ignore
         route.get(
           path,
           queryParsingMiddleware,
@@ -89,6 +90,7 @@ export const router = <T extends Record<string, OperationType<any, any>>>(
           }
         )
       } else {
+        // @ts-ignore
         route.get(path, ...operationMiddlewares, (c) => {
           const ctx = c.get("__middleware_output") || {}
 
@@ -97,6 +99,7 @@ export const router = <T extends Record<string, OperationType<any, any>>>(
       }
     } else if (operation.type === "mutation") {
       if (operation.schema) {
+        // @ts-ignore
         route.post(
           path,
           bodyParsingMiddleware,
@@ -123,6 +126,7 @@ export const router = <T extends Record<string, OperationType<any, any>>>(
           }
         )
       } else {
+        // @ts-ignore
         route.post(path, ...operationMiddlewares, (c) => {
           const ctx = c.get("__middleware_output") || {}
 
