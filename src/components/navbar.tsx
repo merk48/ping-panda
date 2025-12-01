@@ -19,11 +19,23 @@ export default async function Navbar() {
           <div className="flex items-center space-x-4">
             {user ? (
               <>
+                <Link
+                  href="/pricing"
+                  className={buttonVariants({
+                    size: "sm",
+                    variant: "ghost",
+                  })}
+                >
+                  Pricing
+                </Link>
+
                 <SignOutButton>
                   <Button size="sm" variant="ghost">
                     Sign out
                   </Button>
                 </SignOutButton>
+                <div className="h-8 w-px bg-gray-200"></div>
+
                 <Link
                   href="/dashboard"
                   className={buttonVariants({
@@ -38,7 +50,7 @@ export default async function Navbar() {
             ) : (
               <>
                 <Link
-                  href="/dashboard"
+                  href="/pricing"
                   className={buttonVariants({
                     size: "sm",
                     variant: "ghost",
