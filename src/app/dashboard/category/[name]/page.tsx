@@ -2,7 +2,7 @@ import DashboardPage from "@/components/dashboard-page"
 import { db } from "@/db"
 import { currentUser } from "@clerk/nextjs/server"
 import { notFound } from "next/navigation"
-import CategoryPageContent from "./components/category-page.content"
+import { CategoryPageContent } from "./components/category-page.content"
 
 interface PageProps {
   params: {
@@ -10,8 +10,8 @@ interface PageProps {
   }
 }
 
-export default async function Page({ params }: PageProps) {
-  if (typeof params.name !== "string") notFound()
+const Page = async ({ params }: PageProps) => {
+  if (typeof params.name !== "string") return notFound()
 
   const auth = await currentUser()
 
@@ -40,7 +40,7 @@ export default async function Page({ params }: PageProps) {
       },
     },
   })
-  console.log(category)
+
   if (!category) return notFound()
 
   const hasEvents = category._count.events > 0
@@ -51,3 +51,5 @@ export default async function Page({ params }: PageProps) {
     </DashboardPage>
   )
 }
+
+export default Page
