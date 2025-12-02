@@ -26,7 +26,7 @@ export default async function Page({ searchParams }: PageProps) {
     where: { externalId: auth.id },
   })
 
-  if (!user) redirect("/sign-in")
+  if (!user) redirect("/welcome")
 
   const intent = searchParams.intent
 
