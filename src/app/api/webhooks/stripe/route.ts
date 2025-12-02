@@ -4,6 +4,8 @@ import { headers } from "next/headers"
 import Stripe from "stripe"
 
 export async function POST(req: Request) {
+  console.log("stripe webhook1")
+
   const body = await req.text()
   const signature = headers().get("stripe-signature")
 
@@ -21,7 +23,7 @@ export async function POST(req: Request) {
     if (!userId) {
       return new Response("Invalid metadata", { status: 400 })
     }
-
+    console.log("stripe webhook3")
     await db.user.update({
       where: { id: userId },
       data: { plan: "PRO" },

@@ -12,21 +12,23 @@ import { PaymentSuccessModal } from "@/components/payment-success-modal"
 interface PageProps {
   searchParams: {
     [key: string]: string | string[] | undefined
-    // intent: string
-    // success: boolean
   }
 }
 
-export default async function Page({ searchParams }: PageProps) {
+const Page = async ({ searchParams }: PageProps) => {
   const auth = await currentUser()
 
-  if (!auth) redirect("/sign-in")
+  if (!auth) {
+    redirect("/sign-in")
+  }
 
   const user = await db.user.findUnique({
     where: { externalId: auth.id },
   })
 
-  if (!user) redirect("/welcome")
+  if (!user) {
+    return redirect("/welcome")
+  }
 
   const intent = searchParams.intent
 
@@ -40,10 +42,11 @@ export default async function Page({ searchParams }: PageProps) {
   }
 
   const success = searchParams.success
-  console.log(success)
+
   return (
     <>
       {success ? <PaymentSuccessModal /> : null}
+
       <DashboardPage
         cta={
           <CreateEventCategoryModal>
@@ -60,3 +63,5 @@ export default async function Page({ searchParams }: PageProps) {
     </>
   )
 }
+
+export default Page

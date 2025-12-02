@@ -22,14 +22,12 @@ export const PaymentSuccessModal = () => {
       return query.state.data?.plan === "PRO" ? false : 1000
     },
   })
-
+  console.log(data)
   const handleClose = () => {
     setIsOpen(false)
-    router.push("/dashboard")
   }
 
   const isPaymentSuccessful = data?.plan === "PRO"
-
   return (
     <Modal
       showModal={isOpen}
