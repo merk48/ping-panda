@@ -2,7 +2,7 @@
 
 Built with the Next.js App Router, Postgres, TypeScript, Tailwind & Clerk
 
-![Project Image](https://github.com/joschan21/pingpanda/blob/main/public/thumbnail.png)
+![Project Image](https://github.com/merk48/Nextjs--PingPanda/blob/main/public/thumbnail.png)
 
 ## Features
 
@@ -29,7 +29,6 @@ To get started with this project, run
 and copy the .env.example variables into a separate .env file, fill them out & and that's all you need to get started!
 
 
-
 ## Live on vercel
 
-https://merk-ping-panda-sass.vercel.app/
+https://merk48-ping-panda.vercel.app/
