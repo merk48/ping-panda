@@ -6,6 +6,7 @@ import { cn } from "@/utils"
 
 import "./globals.css"
 import { ClerkProvider } from "@clerk/nextjs"
+import { constructMetadata } from "@/lib/utils"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const eb_garamond = EB_Garamond({
@@ -13,10 +14,7 @@ const eb_garamond = EB_Garamond({
   variable: "--font-heading",
 })
 
-export const metadata: Metadata = {
-  title: "Ping Panda",
-  icons: [{ rel: "icon", url: "/brand-asset-profile-picture.png" }],
-}
+export const metadata = constructMetadata()
 
 export default function RootLayout({
   children,
